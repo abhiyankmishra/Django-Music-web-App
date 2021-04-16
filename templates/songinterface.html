@@ -1,0 +1,145 @@
+<style>
+
+    .maindiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+
+    .subdiv{
+        border-radius: 10px;
+        width: auto;
+        height: auto;
+         border: 2px solid pink;
+          margin-top: 10px;
+        font-family:inherit;
+        padding: 10px;
+        background-color: antiquewhite;
+        color:coral;
+
+    }
+    .btndiv{
+     display: flex;
+        align-items: center;
+        justify-content: center;
+        border:1px solid pink;
+        border-radius: 90px;
+    }
+
+    .btn{
+        width:100px;
+        margin:5px;
+    }
+
+
+
+    .form-control{
+        text-align: center;
+        font-family:inherit;
+
+    }
+
+    .headingdiv{
+
+        border-radius: 10px;
+        text-align: center;
+        text-decoration-line: underline;
+        border: 1px solid pink;
+    }
+</style>
+
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="/static/category.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Song interface</title>
+</head>
+<body>
+<form action="/songsubmit/" method="post" enctype="multipart/form-data">{%csrf_token%}
+<div class="maindiv">
+    <div class="subdiv">
+    <div class="headingdiv"> <h3>Song Interface</h3></div>
+        <div class="form-group">
+       <label >category id</label>
+               <select id="cid" class="form-control" name="cid"></select>
+
+
+       <small  class="form-text text-muted">Select MainCategory-id for this subcategory</small>
+      </div>
+
+        <div class="form-group">
+       <label >SubCategory id</label>
+            <select id="scid" name="scid" class="form-control"></select>
+      </div>
+
+      <div class="form-group">
+       <label >Song Title</label>
+      <input type="text" class="form-control" placeholder="enter title" name="stitle">
+      </div>
+         <div class="form-group">
+       <label >Release year</label>
+      <input type="text" class="form-control" placeholder="enter release year" name="srlyr">
+      </div>
+        <div class="form-group">
+       <label >Lyrics</label>
+      <input type="file" class="form-control" placeholder="lyrics" name="slyrics">
+      </div>
+
+        <div class="form-group ">
+       <label >Status</label><br>
+            <input type="radio" id="movie" name="sstatus" value="movie">
+<label for="movie">movie</label><br>
+<input type="radio" id="album" name="sstatus" value="album">
+<label for="album">album</label>
+        </div>
+        <div class="form-group ">
+       <label >Type</label><br>
+
+            <input type="radio" id="audio" name="stype" value="audio">
+<label for="audio">audio</label><br>
+<input type="radio" id="video" name="stype" value="video">
+<label for="video">video</label>
+        </div>
+        <div class="form-group">
+       <label >Singers</label>
+      <input type="text" class="form-control" placeholder="Singers" name="ssingers">
+      </div>
+
+        <div class="form-group">
+       <label >Director</label>
+      <input type="text" class="form-control" placeholder="Director" name="sdir">
+      </div>
+
+        <div class="form-group">
+       <label >MusicCompany</label>
+      <input type="text" class="form-control" placeholder="MusicCompany" name="scomp">
+      </div>
+
+      <div class="form-group">
+      <label >poster</label>
+    <input type="file" class="form-control" name="sposter">
+     </div>
+      <div class="btndiv">
+          <button type="submit" class="btn btn-primary btn">Submit</button>
+          <button type="reset" class="btn btn-primary btn">Reset</button>
+      </div>
+         <div class="form-group maindiv">
+       <label>{{msg}}</label>
+         </div>
+    </div>
+</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<style>
+.maindiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+    .subdiv{
+        border-radius: 10px;
+        width: auto;
+        height: auto;
+         border: 2px solid black;
+          margin-top: 50px;
+        font-family:inherit;
+        padding: 20px;
+        background-color: #95a5a6;
+        color:black;
+
+    }
+.tabcap{
+
+        text-align: center;
+
+
+}
+
+
+
+</style>
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bsongootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>subcatdatashow</title>
+</head>
+<body>
+<div class="maindiv">
+
+    <div class="subdiv">
+        <div class="tabcap"><h3>List of Categories</h3></div>
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+
+
+
+      <th scope="col">SubCat ID</th>
+        <th scope="col">MainCategory ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+        <th scope="col">SubCat.icon</th>
+         <th scope="col">update/delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for row in rows%}
+    <tr>
+      <th scope="row">{{row.0}}</th>
+      <td>{{row.1}}/{{row.5}}</td>
+      <td>{{row.2}}</td>
+        <td>{{row.3}}</td>
+      <td><img src="/static/{{row.4}}" width="80" height="80" class="rounded float-left" alt="{{row.4}}"></td>
+        <td><a href="/subcatdisplaybyid?scid={{row.0}}">Edit/Delete </a></td>
+    </tr>
+
+
+{%endfor%}
+  </tbody>
+</table>
+    </div>
+</div>
+</body>
+</html>
